@@ -1,0 +1,43 @@
+{
+  "name": "phyji_coupon",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build:prod": "node_modules/.bin/rimraf dist &&  cross-env NODE_ENV=production  webpack --mode production  && npm-build-zip --source=dist/${npm_package_name} --destination=dist/ ",
+    "build:dev": "node_modules/.bin/cross-env NODE_ENV=development  webpack --mode development",
+    "whatch:dev": "node_modules/.bin/cross-env NODE_ENV=development webpack --mode development --watch",
+    "whatch:prod": "node_modules/.bin/cross-env NODE_ENV=production  webpack --mode production --watch",
+    "serve": "node_modules/.bin/cross-env NODE_ENV=development  webpack serve  --mode development  --progress --open",
+    "firebase:deploy": "npm run build:prod && firebase deploy"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-typescript": "^7.13.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "clean-webpack-plugin": "*",
+    "copy-webpack-plugin": "^8.1.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.2.4",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.6.0",
+    "npm-build-zip": "^1.0.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "sass": "^1.32.12",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "qrcode": "^1.4.4",
+    "sidebarjs": "^9.0.0"
+  }
+}
